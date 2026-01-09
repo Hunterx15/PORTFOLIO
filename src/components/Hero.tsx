@@ -88,7 +88,7 @@ export function Hero() {
               className="flex gap-4 justify-center lg:justify-start"
             >
               <a
-                href="https://github.com/"
+                href="https://github.com/Hunterx15"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-accent transition-colors"
@@ -97,7 +97,7 @@ export function Hero() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/"
+                href="https://www.linkedin.com/in/pankaj-jangid-1a5320280/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-accent transition-colors"

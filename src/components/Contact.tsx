@@ -31,12 +31,12 @@ const socialLinks = [
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/",
+    href: "https://github.com/Hunterx15",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com/",
+    href: "https://www.linkedin.com/in/pankaj-jangid-1a5320280",
   },
 ];
 
