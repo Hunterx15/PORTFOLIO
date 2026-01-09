@@ -64,12 +64,6 @@ This project can be deployed on platforms like:
 
 ---
 
-## 📸 Screenshots
-
-(Add screenshots here if needed)
-
----
-
 ## 📄 License
 
 This project is open-source and available under the **MIT License**.
