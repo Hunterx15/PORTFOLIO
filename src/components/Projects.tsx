@@ -5,6 +5,36 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
+    title: "CODEBOX",
+    subtitle: "Game-Based Coding & Learning Platform",
+    description:
+      "Full-stack game-based coding and learning platform with structured courses, in-browser code execution, and secure authentication. Built for interactive programming education without local setup.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Clerk",
+      "Sandpack",
+    ],
+    features: [
+      {
+        icon: Shield,
+        text: "Secure authentication & access control with Clerk",
+      },
+      {
+        icon: Code,
+        text: "In-browser code execution for interactive learning",
+      },
+    ],
+    github: "https://github.com/Hunterx15/codebox",
+    live: "https://codebox-gamma.vercel.app/",
+    color: "from-blue-500/20 to-cyan-500/20",
+    accent: "bg-blue-500",
+  },
+  {
     title: "INVIZIO",
     subtitle: "Smart Hiring & Interview Management Platform",
     description:
@@ -24,7 +54,14 @@ const projects = [
     subtitle: "DSA & Coding Practice Platform",
     description:
       "Scalable coding platform with real-time code execution, AI-powered hints, and admin dashboards. Supports multiple languages with Monaco Editor and Judge0 integration.",
-    tech: ["React.js", "Node.js", "MongoDB", "Redis", "Judge0", "Google Gemini"],
+    tech: [
+      "React.js",
+      "Node.js",
+      "MongoDB",
+      "Redis",
+      "Judge0",
+      "Google Gemini",
+    ],
     features: [
       { icon: Code, text: "Multi-language code execution" },
       { icon: Bot, text: "AI-powered hints & explanations" },
@@ -49,54 +86,48 @@ export function Projects() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
         >
-          {/* Section Header */}
+          {/* Header */}
           <div className="text-center mb-16">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.2 }}
-              className="text-primary font-mono text-sm mb-4 block"
-            >
+            <motion.span className="text-primary font-mono text-sm mb-4 block">
               // Featured Work
             </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
-            >
+            <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Projects I've <span className="text-gradient">Built</span>
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4 }}
-              className="text-muted-foreground max-w-2xl mx-auto"
-            >
-              Production-grade applications showcasing full-stack development expertise
+            <motion.p className="text-muted-foreground max-w-2xl mx-auto">
+              Production-grade applications showcasing full-stack development
+              expertise
             </motion.p>
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
+          {/* ✅ ONLY ADDITION: items-stretch */}
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 + index * 0.2 }}
-                className="group"
+                className="group h-full"
               >
-                <div className={`bg-gradient-to-br ${project.color} rounded-3xl p-1`}>
-                  <div className="bg-card rounded-[calc(1.5rem-4px)] p-6 lg:p-8 h-full">
+                <div
+                  className={`bg-gradient-to-br ${project.color} rounded-3xl p-1 h-full`}
+                >
+                  <div className="bg-card rounded-[calc(1.5rem-4px)] p-6 lg:p-8 h-full flex flex-col">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div>
                         <div className="flex items-center gap-3 mb-2">
-                          <div className={`w-3 h-3 rounded-full ${project.accent}`} />
-                          <h3 className="text-2xl font-bold">{project.title}</h3>
+                          <div
+                            className={`w-3 h-3 rounded-full ${project.accent}`}
+                          />
+                          <h3 className="text-2xl font-bold">
+                            {project.title}
+                          </h3>
                         </div>
-                        <p className="text-primary font-mono text-sm">{project.subtitle}</p>
+                        <p className="text-primary font-mono text-sm">
+                          {project.subtitle}
+                        </p>
                       </div>
                       <div className="flex gap-2">
                         <a
@@ -104,7 +135,6 @@ export function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 rounded-lg bg-secondary hover:bg-accent transition-colors"
-                          aria-label="View on GitHub"
                         >
                           <Github className="w-5 h-5" />
                         </a>
@@ -113,7 +143,6 @@ export function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 rounded-lg bg-secondary hover:bg-accent transition-colors"
-                          aria-label="View live site"
                         >
                           <ExternalLink className="w-5 h-5" />
                         </a>
@@ -128,17 +157,22 @@ export function Projects() {
                     {/* Features */}
                     <div className="space-y-3 mb-6">
                       {project.features.map((feature) => (
-                        <div key={feature.text} className="flex items-center gap-3">
+                        <div
+                          key={feature.text}
+                          className="flex items-center gap-3"
+                        >
                           <div className="p-1.5 rounded-md bg-primary/10">
                             <feature.icon className="w-4 h-4 text-primary" />
                           </div>
-                          <span className="text-sm text-muted-foreground">{feature.text}</span>
+                          <span className="text-sm text-muted-foreground">
+                            {feature.text}
+                          </span>
                         </div>
                       ))}
                     </div>
 
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
+                    {/* ✅ ONLY ADDITION: mt-auto */}
+                    <div className="mt-auto flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
@@ -154,20 +188,18 @@ export function Projects() {
             ))}
           </div>
 
-          {/* View More */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.8 }}
-            className="text-center mt-12"
-          >
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <div className="text-center mt-12">
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="hero-outline" size="lg">
                 <Github className="w-5 h-5 mr-2" />
                 View More on GitHub
               </Button>
             </a>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
